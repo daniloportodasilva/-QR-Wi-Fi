@@ -1,32 +1,161 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<title>Wi-Fi AKATSUKI</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-body { font-family: Arial; text-align:center; padding:40px; background:#0f172a; color:white; }
-.card { background:#111827; padding:20px; border-radius:12px; display:inline-block; }
-button { padding:10px 20px; border:none; border-radius:8px; background:#ef4444; color:white; cursor:pointer; }
-</style>
+  <meta charset="UTF-8">
+  <title>Wi-Fi AKATSUKI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    :root {
+      --bg-main: #0f172a;
+      --bg-card: #111827;
+      --primary: #ef4444;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #020617, var(--bg-main));
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 20px;
+      text-align: center;
+      background: #020617;
+      border-bottom: 1px solid #1f2933;
+    }
+
+    header h1 {
+      font-size: 1.4rem;
+      letter-spacing: 1px;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      padding: 25px;
+      border-radius: 14px;
+      width: 100%;
+      max-width: 360px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .card h2 {
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+
+    .info {
+      margin: 10px 0;
+      font-size: 0.95rem;
+    }
+
+    .senha {
+      font-weight: bold;
+      color: #fca5a5;
+      word-break: break-all;
+    }
+
+    button {
+      margin-top: 15px;
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background: var(--primary);
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+      background: #dc2626;
+      transform: scale(1.03);
+    }
+
+    .connect {
+      display: block;
+      margin-top: 15px;
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .connect:hover {
+      color: white;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      background: #020617;
+      border-top: 1px solid #1f2933;
+    }
+
+    /* Responsividade extra */
+    @media (max-width: 400px) {
+      header h1 {
+        font-size: 1.2rem;
+      }
+
+      .card {
+        padding: 20px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="card">
-<h2>📶 Wi-Fi Pessoal</h2>
-<p><b>SSID:</b> AKATSUKI</p>
-<p><b>Senha:</b> <span id="senha">@ADSP!!#2026</span></p>
+  <header>
+    <h1>📡 Wi-Fi AKATSUKI</h1>
+  </header>
 
-<button onclick="navigator.clipboard.writeText('@ADSP!!#2026')">
-📋 Copiar Senha
-</button>
-</div>
-<a href="wifi://WIFI:T:WPA;S:AKATSUKI;P:@ADSP!!#2026;;">
-Conectar automaticamente
-</a>
+  <main>
+    <div class="card">
+      <h2>📶 Rede Pessoal</h2>
+
+      <p class="info"><b>SSID:</b> AKATSUKI</p>
+      <p class="info">
+        <b>Senha:</b><br>
+        <span class="senha" id="senha">@ADSP!!#2026</span>
+      </p>
+
+      <button onclick="navigator.clipboard.writeText('@ADSP!!#2026')">
+        📋 Copiar Senha
+      </button>
+
+      <a class="connect" href="wifi://WIFI:T:WPA;S:AKATSUKI;P:@ADSP!!#2026;;">
+        🔗 Conectar automaticamente
+      </a>
+    </div>
+  </main>
+
   <footer>
-  <p>Desenvolvido por APDS - tech solutions</p>
-</footer>
+    <p>Desenvolvido por APDS Tech Solutions</p>
+  </footer>
 
 </body>
 </html>
