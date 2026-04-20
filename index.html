@@ -1,162 +1,372 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+
+<!doctype html>
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Wi-Fi</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="Acesso à rede corporativa Wi-Fi - Informações seguras para colaboradores" />
+<title>Wi-Fi Corporativo | ADPS Tech Solutions</title>
 
-  <style>
-    :root {
-      --bg-main: #0f172a;
-      --bg-card: #111827;
-      --primary: #ef4444;
-      --text-main: #e5e7eb;
-      --text-muted: #9ca3af;
-    }
+<style>
+:root{
+  --primary:#0a5c8e;
+  --primary-dark:#07426a;
+  --secondary:#2c3e50;
+  --success:#27ae60;
+  --gray-light:#ecf0f1;
+  --gray:#95a5a6;
+  --gray-dark:#7f8c8d;
+  --white:#ffffff;
+  --shadow:0 2px 10px rgba(0,0,0,0.1);
+  --border-radius:8px;
+}
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+*{margin:0;padding:0;box-sizing:border-box}
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(180deg, #020617, var(--bg-main));
-      color: var(--text-main);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+body{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
 
-    header {
-      padding: 20px;
-      text-align: center;
-      background: #020617;
-      border-bottom: 1px solid #1f2933;
-    }
+/* Container principal */
+.container{
+  width:100%;
+  max-width:550px;
+}
 
-    header h1 {
-      font-size: 1.4rem;
-      letter-spacing: 1px;
-    }
+/* Card corporativo */
+.card{
+  background:var(--white);
+  border-radius:var(--border-radius);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+  transition:transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-    main {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 8px 25px rgba(0,0,0,0.15);
+}
 
-    .card {
-      background: var(--bg-card);
-      padding: 25px;
-      border-radius: 14px;
-      width: 100%;
-      max-width: 360px;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    }
+/* Header corporativo */
+.header{
+  background:var(--primary);
+  color:var(--white);
+  padding:30px;
+  text-align:center;
+  border-bottom:4px solid var(--primary-dark);
+}
 
-    .card h2 {
-      margin-bottom: 15px;
-      font-size: 1.3rem;
-    }
+.logo-area{
+  margin-bottom:15px;
+}
 
-    .info {
-      margin: 10px 0;
-      font-size: 0.95rem;
-    }
+.logo-circle{
+  width:70px;
+  height:70px;
+  background:rgba(255,255,255,0.2);
+  border-radius:50%;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-size:32px;
+}
 
-    .senha {
-      font-weight: bold;
-      color: #fca5a5;
-      word-break: break-all;
-    }
+.company-name{
+  font-size:24px;
+  font-weight:600;
+  margin-top:10px;
+  letter-spacing:-0.5px;
+}
 
-    button {
-      margin-top: 15px;
-      width: 100%;
-      padding: 12px;
-      border: none;
-      border-radius: 10px;
-      background: var(--primary);
-      color: white;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.3s, transform 0.2s;
-    }
+.network-badge{
+  display:inline-block;
+  background:rgba(255,255,255,0.2);
+  padding:5px 15px;
+  border-radius:20px;
+  font-size:12px;
+  margin-top:10px;
+  font-weight:500;
+}
 
-    button:hover {
-      background: #dc2626;
-      transform: scale(1.03);
-    }
+/* Conteúdo */
+.content{
+  padding:30px;
+}
 
-    .connect {
-      display: block;
-      margin-top: 15px;
-      text-decoration: none;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
+.info-group{
+  margin-bottom:25px;
+}
 
-    .connect:hover {
-      color: white;
-    }
+.info-label{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:13px;
+  font-weight:600;
+  text-transform:uppercase;
+  color:var(--gray);
+  margin-bottom:8px;
+  letter-spacing:0.5px;
+}
 
-    footer {
-      text-align: center;
-      padding: 15px;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      background: #020617;
-      border-top: 1px solid #1f2933;
-    }
+.info-label i{
+  font-size:16px;
+}
 
-    /* Responsividade extra */
-    @media (max-width: 400px) {
-      header h1 {
-        font-size: 1.2rem;
-      }
+.info-value{
+  background:var(--gray-light);
+  padding:12px 15px;
+  border-radius:var(--border-radius);
+  font-family:'Courier New', monospace;
+  font-size:16px;
+  font-weight:500;
+  color:var(--secondary);
+  word-break:break-all;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
 
-      .card {
-        padding: 20px;
-      }
-    }
-  </style>
+.info-value span{
+  flex:1;
+}
+
+.security-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  background:var(--success);
+  color:white;
+  padding:4px 12px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:600;
+}
+
+/* Botão */
+.btn-copy{
+  width:100%;
+  padding:14px;
+  background:var(--primary);
+  color:white;
+  border:none;
+  border-radius:var(--border-radius);
+  font-size:14px;
+  font-weight:600;
+  cursor:pointer;
+  transition:all 0.3s ease;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin-top:20px;
+}
+
+.btn-copy:hover{
+  background:var(--primary-dark);
+  transform:translateY(-2px);
+  box-shadow:0 4px 12px rgba(10,92,142,0.3);
+}
+
+.btn-copy:active{
+  transform:translateY(0);
+}
+
+/* Alerta de segurança */
+.security-notice{
+  margin-top:20px;
+  padding:12px;
+  background:#fff3cd;
+  border-left:4px solid #ffc107;
+  border-radius:4px;
+  font-size:12px;
+  color:#856404;
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+}
+
+.security-notice i{
+  font-size:14px;
+  margin-top:1px;
+}
+
+/* Footer */
+.footer{
+  background:var(--gray-light);
+  padding:15px 30px;
+  text-align:center;
+  font-size:11px;
+  color:var(--gray-dark);
+  border-top:1px solid #ddd;
+}
+
+.footer a{
+  color:var(--primary);
+  text-decoration:none;
+}
+
+.footer a:hover{
+  text-decoration:underline;
+}
+
+/* Toast notification */
+.toast{
+  position:fixed;
+  bottom:30px;
+  left:50%;
+  transform:translateX(-50%);
+  background:var(--secondary);
+  color:white;
+  padding:12px 24px;
+  border-radius:50px;
+  font-size:14px;
+  font-weight:500;
+  z-index:1000;
+  animation:slideUp 0.3s ease;
+  box-shadow:0 4px 12px rgba(0,0,0,0.2);
+}
+
+@keyframes slideUp{
+  from{
+    opacity:0;
+    transform:translateX(-50%) translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateX(-50%) translateY(0);
+  }
+}
+
+/* Responsividade */
+@media (max-width:480px){
+  .header{padding:20px;}
+  .company-name{font-size:20px;}
+  .content{padding:20px;}
+  .info-value{font-size:14px;flex-wrap:wrap;}
+  .security-badge{order:1;width:100%;justify-content:center;}
+}
+
+/* Ícones usando emoji/unicode (fallback) */
+.icon{font-style:normal;}
+</style>
 </head>
-
 <body>
 
-  <header>
-    <h1>📡 Wi-Fi </h1>
-  </header>
+<div class="container">
+  <div class="card">
+    
+    <div class="header">
+      <div class="logo-area">
+        <div class="logo-circle">
+          <span>📡</span>
+        </div>
+      </div>
+      <div class="company-name">ADPS Tech Solutions</div>
+      <div class="network-badge">Rede Corporativa • Nível 1</div>
+    </div>
 
-  <main>
-    <div class="card">
-      <h2>📶 Rede Pessoal</h2>
+    <div class="content">
+      
+      <div class="info-group">
+        <div class="info-label">
+          <i>🌐</i>
+          <span>REDE (SSID)</span>
+        </div>
+        <div class="info-value">
+          <span>ADPS_CORP_5G</span>
+        </div>
+      </div>
 
-      <p class="info"><b>SSID:</b>REDE VISITANTE</p>
-      <p class="info">
-        <b>Senha:</b><br>
-        <span class="senha" id="senha">@Vistante2026</span>
-      </p>
+      <div class="info-group">
+        <div class="info-label">
+          <i>🔒</i>
+          <span>SEGURANÇA</span>
+        </div>
+        <div class="info-value">
+          <span>WPA2-Enterprise</span>
+          <span class="security-badge">✓ AES-256</span>
+        </div>
+      </div>
 
-      <button onclick="navigator.clipboard.writeText('@ADSP!!#2026')">
-        📋 Copiar Senha
+      <div class="info-group">
+        <div class="info-label">
+          <i>🔑</i>
+          <span>SENHA DE ACESSO</span>
+        </div>
+        <div class="info-value" id="senhaContainer">
+          <span id="senha">ADPS@Corp#2026!</span>
+          <span class="security-badge">⚠️ Confidencial</span>
+        </div>
+      </div>
+
+      <button class="btn-copy" onclick="copiarSenha()">
+        <span>📋</span>
+        <span>Copiar Senha</span>
       </button>
 
-      <a class="connect" href="wifi://WIFI:T:WPA;S:AKATSUKI;P:@ADSP!!#2026;;">
-        🔗 Conectar automaticamente
-      </a>
-    </div>
-  </main>
+      <div class="security-notice">
+        <i>⚠️</i>
+        <div>
+          <strong>Política de Segurança:</strong> Esta senha é pessoal e intransferível. 
+          Compartilhá-la com não autorizados viola as políticas corporativas.
+        </div>
+      </div>
 
-  <footer>
-    <p>Desenvolvido por APDS Tech Solutions</p>
-  </footer>
+    </div>
+
+    <div class="footer">
+      <div>© 2026 ADPS Tech Solutions - Todos os direitos reservados</div>
+      <div style="margin-top:5px">
+        <a href="#">Política de Privacidade</a> • 
+        <a href="#">Suporte TI</a> • 
+        <a href="#">Versão 2.0</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function copiarSenha() {
+  const senha = document.getElementById('senha').innerText;
+  
+  navigator.clipboard.writeText(senha).then(() => {
+    // Criar toast notification
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.innerHTML = '✓ Senha copiada para a área de transferência';
+    document.body.appendChild(toast);
+    
+    // Remover toast após 3 segundos
+    setTimeout(() => {
+      toast.remove();
+    }, 3000);
+    
+    // Feedback visual no botão
+    const btn = document.querySelector('.btn-copy');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<span>✓</span><span>Copiado!</span>';
+    btn.style.background = '#27ae60';
+    
+    setTimeout(() => {
+      btn.innerHTML = originalText;
+      btn.style.background = '';
+    }, 2000);
+    
+  }).catch(err => {
+    console.error('Erro ao copiar: ', err);
+    alert('Erro ao copiar a senha. Por favor, copie manualmente.');
+  });
+}
+</script>
 
 </body>
 </html>
-
